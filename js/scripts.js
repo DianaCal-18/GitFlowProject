@@ -24,3 +24,17 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+    const toggleTheme = () => {
+        document.body.classList.toggle("dark-theme");
+        localStorage.setItem("theme", document.body.classList.contains("dark-theme") ? "dark" : "light");
+    };
+
+    window.onload = () => {
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+    };
+
+    document.getElementById("themeToggleButton").addEventListener("click", toggleTheme);
+
